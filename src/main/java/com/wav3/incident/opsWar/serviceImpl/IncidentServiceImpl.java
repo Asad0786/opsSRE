@@ -68,11 +68,11 @@ public class IncidentServiceImpl implements IIncidentService {
 	public PaginatedResponse<IncidentResponseDTO> getAllIncidents(IncidentPaginationRequestDTO filter) {
 
 		Pageable pageable;
-
+		int page = 1;
 		if (filter.getPage() == -1) {
 			pageable = Pageable.unpaged();
 		} else {
-			int page = Math.max(filter.getPage(), 1);
+			page = Math.max(filter.getPage(), 1);
 			Sort sort = Sort.by(filter.getSort(), filter.getSortBy().name());
 			pageable = PageRequest.of(page - 1, filter.getSize(), sort);
 		}
@@ -88,7 +88,7 @@ public class IncidentServiceImpl implements IIncidentService {
 		List<IncidentResponseDTO> incidents = incidentsPage.getContent().stream()
 				.map(incident -> IncidentMapper.toResponse(incident, false)).collect(Collectors.toList());
 
-		return new PaginatedResponse<IncidentResponseDTO>(incidents, filter.getPage(), filter.getSize(),
+		return new PaginatedResponse<IncidentResponseDTO>(incidents, page, filter.getSize(),
 				incidentsPage.getTotalElements(), incidentsPage.getTotalPages(), incidentsPage.hasNext(),
 				incidentsPage.hasPrevious());
 	}

@@ -17,7 +17,7 @@ import lombok.ToString;
 public class IncidentPaginationRequestDTO {
 
 	@Min(value = -1, message = "Page should be greater than or equal to -1, -1 only if you want all records")
-	private int page = 0;
+	private int page = 1;
 	@Min(value = 1, message = "Page should be greater than or equal to 1")
 	private int size = 10;
 	private String incidentId;
