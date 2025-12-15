@@ -97,13 +97,13 @@ No manual intervention is required.
 
 ## API Endpoints
 
-| Method | Endpoint         | Description                        |
-| ------ | ---------------- | ---------------------------------- |
-| POST   | `/incident`      | Create a new incident artifact     |
-| PUT    | `/incident/{id}` | Update an existing incident        |
-| GET    | `/incident/{id}` | Get incident by ID                 |
-| GET    | `/incidents`     | Get paginated & filtered incidents |
-| DELETE | `/incident/{id}` | Delete incident                    |
+| Method | Endpoint         | Description                        |Public/protected|
+| ------ | ---------------- | ---------------------------------- |----------------|
+| POST   | `/incident`      | Create a new incident artifact     |  protected     |
+| PUT    | `/incident/{id}` | Update an existing incident        |  protected     |
+| GET    | `/incident/{id}` | Get incident by ID                 |  public        |
+| GET    | `/incidents`     | Get paginated & filtered incidents |  public        |
+| DELETE | `/incident/{id}` | Delete incident                    |  protected     |
 
 All endpoints are **secured** except GET METHODS.
 
