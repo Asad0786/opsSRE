@@ -1,0 +1,8 @@
+{
+	"properties": [
+		{
+			"name": "appinmemory.users",
+			"description": "List of in memory users"
+		}
+	]
+}
